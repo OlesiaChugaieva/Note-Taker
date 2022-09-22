@@ -1,7 +1,6 @@
 const express = require('express');
-
-const apiRoutes = require('./routes/apiroutes');
-const htmlRoutes = require('./routes/htmlroutes');
+const path = require('path');
+const api = require('./routes/apiRoutes');
 
 // Creating an Express server
 const app = express();
@@ -14,11 +13,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Routes
+app.use('/api', api);
 app.use(express.static('public'));
-app.use('/api', apiRoutes);
-app.use('/', htmlRoutes);
 
-// Listener
+
+app.get('/', (req, res) =>{
+    res.sendFile(path.join(__dirname, 'public/index.html'))
+  }
+  );
+  
+  app.get('/notes', (req, res) =>{
+    res.sendFile(path.join(__dirname, 'public/notes.html'))
+  }
+  );
+  
+  app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname, 'public/index.html'))
+    
+  }
+  );
+
+// PORT Listener
 app.listen(PORT, () => {
     console.log(`API server is ready on port ${PORT}!`);
 });

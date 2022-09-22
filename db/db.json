@@ -1,6 +1,10 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Manicure",
+        "text": "123 Street Rd at 8:00am"
+    },
+    {
+        "title": "PEDICURE",
+        "text": "2:OOAM"
     }
 ]
