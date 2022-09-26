@@ -1,4 +1,5 @@
 const note = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile, writeToFile } = require('../helpers/fs');
 
 // GET Route
@@ -12,7 +13,8 @@ note.post('/', (req, res) => {
   if (title && text) {
     const newNote = {
       title,
-      text
+      text,
+      id: uuidv4()
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -23,7 +25,7 @@ note.post('/', (req, res) => {
 
     res.json(response);
   } else {
-    res.json('Error in posting feedback');
+    res.json('Error');
   }
 });
 

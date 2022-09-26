@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
-const api = require('./routes/apiRoutes');
+const api = require('./routes/apiroutes');
 
 // Creating an Express server
 const app = express();
 
 // Setting a PORT
-const PORT = process.env.PORT || 3001;
+let PORT = process.env.PORT || 3001;
 
 //Setting up data parsing
 app.use(express.urlencoded({ extended: true }));
