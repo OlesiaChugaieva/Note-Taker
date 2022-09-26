@@ -6,7 +6,7 @@ const api = require('./routes/apiroutes');
 const app = express();
 
 // Setting a PORT
-const PORT = process.env.PORT || 3001;
+let PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'public')));
 //Setting up data parsing
