@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const api = require('./routes/apiRoutes');
+const api = require('./routes/apiroutes');
 
 // Creating an Express server
 const app = express();
